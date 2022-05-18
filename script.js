@@ -2,14 +2,30 @@ let completePhrase = '';
 let decoration = '';
 
 const messageObj = {
-    messageFirstPart: ['Soon', 'In future', 'Next year', 'Next month', 'Some day', 'In other life'],
-    messageSecondPart: ['you', 'your friend', 'someone'],
-    messageThirdPart: ['meet new friend', 'have a trip', 'make dream true', 'get a new job', 'change lifestyle', 'buy a boat', 'go to the Mars', 'become poppular', 'buy a sport car'],
+    pronoun: ['I', 'You', 'He', 'She', 'We', 'They'],
+    adjective: ['my', 'your', 'his', 'her', 'our', 'their'],
+        cleaned: ['teeth', 'room', 'wardrobe', 'garden'],
+        made: ['homework', 'project', 'prediction', 'forecast'],
+        played: ['guitar', 'role', 'music', 'game'],
     phraseConstructor() {                                                       //Complete phrase generator.
-        let firstPart = randomSelection(messageObj.messageFirstPart);
-        let secondPart = randomSelection(messageObj.messageSecondPart);
-        let thirdPart = randomSelection(messageObj.messageThirdPart);
-        completePhrase = `${firstPart}, ${secondPart} will ${thirdPart}!`;
+        let pronounSelection = randomSelection(messageObj.pronoun);
+        let adjectiveSelection = messageObj.adjective[messageObj.pronoun.indexOf(pronounSelection)];  //Selecting of correct adjective for previously selected pronoun.
+        let actionArray = Object.keys(messageObj).slice(2, -1); //Extract a list of actions from object.
+        let actionSelection = randomSelection(actionArray);  //Random selection of action.
+        let actionObjectSelection = () => {
+            switch (actionSelection) {                  
+                case 'cleaned':
+                    return randomSelection(messageObj.cleaned);
+                    break;
+                case 'made':
+                    return randomSelection(messageObj.made);
+                    break;          
+                case 'played':
+                    return randomSelection(messageObj.played);
+                    break;
+                      }
+        }
+        completePhrase = `${pronounSelection.toUpperCase()} ${actionSelection} ${adjectiveSelection.toUpperCase()} ${actionObjectSelection()}.`;
     },
 }
 
@@ -34,4 +50,5 @@ const decorationLine = () => {
 messageObj.phraseConstructor()
 decorationLine()
 
-console.log(`\nYour prediction:\n${decoration}\n| ${completePhrase} |\n${decoration}`);
+console.log(`\nPossessive Adjectives example generator:\n
+${decoration}\n| ${completePhrase} |\n${decoration}`);
