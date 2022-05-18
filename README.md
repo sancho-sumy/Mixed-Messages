@@ -2,7 +2,7 @@
 
 ## Codecademy Portfolio Project: JavaScript Syntax
 
- For this project, you will build a message generator program. Every time a user runs a program, they should get a new, randomized output. You’re welcome to take the project in a couple of different forms, like an astrology generator, inspirational message, or nonsensical jokes. To make your program truly random, the message that it outputs should be made up of at least three different pieces of data. Take what you know of JavaScript syntax so far to build the program and customize it to your liking.
+ Goal of this project, to build a message generator program. Every time a user runs a program, they should provide a new, randomized output. 
 
 #### Project Objectives:
 
@@ -16,3 +16,17 @@
 * JavaScript
 * Git and GitHub
 * Command line
+
+### Result
+
+#### Program Descrption:
+
+Program is generating Possessive Adjectives examples. 
+
+Algorithm as follows:
+* Randomly select a pronoun
+* Based on pronoun select a correct adjective
+* Randomly select possible action
+* Randomly select an object for specific action
+
+Additional feature is random ACSII decoration witch randomly selects symbol (from array) and calculates neccesary size of decoration line.
