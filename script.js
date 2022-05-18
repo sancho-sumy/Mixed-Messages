@@ -4,13 +4,14 @@ const messageObj = {
     messageThirdPart: ['meet new friend', 'have a trip', 'make dream true', 'get a new job', 'change lifestyle', 'buy a boat', 'go to the Mars', 'become poppular', 'buy a sport car'],
 }
 
-const decorationList = ['=', '-', '~', '+', ':'];
+const decorationList = ['=', '-', '~'];
 
 let completePhrase = '';
+let decoration = '';
 
 //Function for random selection of some text from specified array.
 const randomSelection = (inputArray) => {
-    return inputArray[Math.floor(Math.random() * (inputArray.length - 1))];
+    return inputArray[Math.floor(Math.random() * inputArray.length)];
 }
 
 //Complete phrase generator.
@@ -31,9 +32,10 @@ const decorationLine = () => {
     for (let i = 0; i < completePhrase.length + 4; i++) {
         decorationArray.push(decorationSymbol);
     }
-    return decorationArray.join('');
+    decoration = decorationArray.join('');
 }
 
 phraseConstructor();
+decorationLine()
 
-console.log(`\nYour prediction:\n${decorationLine()}\n| ${completePhrase} |\n${decorationLine()}`);
+console.log(`\nYour prediction:\n${decoration}\n| ${completePhrase} |\n${decoration}`);
